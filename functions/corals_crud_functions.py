@@ -19,7 +19,8 @@ def show_corals_lists(corals_dict, column = 'Code'):
     if len(corals_dict) > 0:
         title_tbl = [i for i in corals_dict]
 
-        corals_dict['Maintenance Cost'] = _conversion_number_to_money(corals_dict)
+        if 'Maintenance Cost' in set(corals_dict.keys()):
+            corals_dict['Maintenance Cost'] = _conversion_number_to_money(corals_dict)
 
         if len(corals_dict[column]) == 0:
             print('\nThere is no Coral\'s data at all, please consider to add it first!!')
@@ -72,7 +73,7 @@ def sort_corals_display(corals_dict):
             }
 
             print('\n >>>>>>> Full List Corals several Columns Only <<<<<<<')
-            show_corals_lists(filtered_corals_dict)
+            show_corals_lists(filtered_corals_dict, list(filtered_corals_dict)[0])
             break
         else:
             print('There is no such choice!')

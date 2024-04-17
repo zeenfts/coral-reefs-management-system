@@ -104,7 +104,7 @@ if __name__ == '__main__':
                 elif menu_input == '3':
                     show_corals_lists(maintained_dict, 'Session')
                 elif menu_input == '4':
-                    completing_maintain_coral(maintained_dict, corals_dict)
+                    completing_maintain_coral(maintained_dict)
                 elif menu_input == '9':
                     break
                 elif menu_input == '0':

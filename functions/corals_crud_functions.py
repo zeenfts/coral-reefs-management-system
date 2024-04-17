@@ -45,14 +45,17 @@ def sort_corals_display(corals_dict):
         sort_input_user = input(sort_instruction)
 
         if sort_input_user == '1':
+            print('\n >>>>>>> Default Order Full List Corals <<<<<<<')
             _sort_corals_certain_column(corals_dict, default_order=True)
             show_corals_lists(corals_dict)
             break
         elif sort_input_user == '2':
+            print('\n >>>>>>> Ascending Order Full List Corals <<<<<<<')
             _sort_corals_certain_column(corals_dict, 'Ascending')
             show_corals_lists(corals_dict)
             break
         elif sort_input_user == '3':
+            print('\n >>>>>>> Descending Order Full List Corals <<<<<<<')
             _sort_corals_certain_column(corals_dict, ordering_way = 'Descending')
             show_corals_lists(corals_dict)
             break
@@ -67,6 +70,8 @@ def sort_corals_display(corals_dict):
                 key: corals_dict[key] for key in corals_dict.keys()
                 & set([i.strip() for i in filter_column_choice_input.split(',')])
             }
+
+            print('\n >>>>>>> Full List Corals several Columns Only <<<<<<<')
             show_corals_lists(filtered_corals_dict)
             break
         else:
@@ -124,7 +129,6 @@ def delete_coral(corals_dict):
     '''
     Used to remove a coral or a bunch of corals from the warehouse
     '''
-    print('\n ------- Full Corals List -------')
     show_corals_lists(corals_dict)
 
     while (len(corals_dict['Code']) > 0):
@@ -157,7 +161,6 @@ def update_coral(corals_dict, coral_code_exist_in_add = False):
     Used to update the name, quantity, quality score, type,
     scientific name,or maintenance cost of the coral in the list
     '''
-    print('\n ------- Full Corals List to Update -------')
     show_corals_lists(corals_dict)
     print('\n ------- Corals List Update -------')
     change_coral = False
@@ -205,7 +208,6 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
         current_session[0] += 1
     
     while (len(corals_dict['Code'])  > 0):
-        print('\n------- Full List of Corals -------')
         show_corals_lists(corals_dict)
         code_to_maintain = input('\nInput Coral\'s code to be maintained! ')
 
@@ -288,7 +290,7 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
                     current_session_maintained_dict['Total Cost'] = _conversion_number_to_money(current_session_maintained_dict, 'Total Cost')
                     maintained_dict['Total Cost'] = _conversion_number_to_money(maintained_dict, 'Total Cost')
 
-                    show_corals_lists(current_session_maintained_dict, 'Session')
+                    show_corals_lists(current_session_maintained_dict)
                     print(f'Total Maintenance Cost: {_money_formatting_rupiah(total_price)}')
                     break
             
@@ -324,11 +326,9 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
             continue
 
     while (len(corals_dict['Code']) > 0):
-        cont_input = input('\nWant to do other things? [Y: back to Inspector\'s Menu | n: exit program]\n')
+        cont_input = input('\nWant to do other things? (Y/n) ')
 
         if cont_input.upper() == 'Y':
-            print('\n------- Corals still being Maintained -------')
-            show_corals_lists(maintained_dict, 'Session')
             break
         elif cont_input.lower() == 'n':
             print('\nThank you for saving the sea life!\n')
@@ -336,28 +336,9 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
     else:
         show_corals_lists(corals_dict)
 
-def completing_maintain_coral(maintained_dict, corals_dict):
+def completing_maintain_coral(maintained_dict):
     while len(maintained_dict['Session']) > 1:
-        show_corals_lists(maintained_dict, 'Session')
-        session_chooser_input = input('\nWhich session already being maintained? ("All to finished all Corals")\n')
-
-        if session_chooser_input.title() == 'All':
-            for index_maintained in range(len(maintained_dict['Session'])):
-                coral_code_maintain_finished = maintained_dict['Coral Code'][index_maintained]
-                coral_qty_maintain_finished =  maintained_dict['Quantity'][index_maintained]
-                code_to_update_maintain_finished = corals_dict['Code'].index(coral_code_maintain_finished)
-
-                old_qty_coral = corals_dict['Quantity'][code_to_update_maintain_finished]
-                old_total_score_coral = corals_dict['Total Score'][code_to_update_maintain_finished] * old_qty_coral
-                new_total_score_coral = ( old_total_score_coral + (coral_qty_maintain_finished * 100) ) / (coral_qty_maintain_finished + old_qty_coral)
-
-                corals_dict['Quantity'][code_to_update_maintain_finished] += maintained_dict['Quantity'][index_maintained]
-                corals_dict['Total Score'][code_to_update_maintain_finished] = round(new_total_score_coral, 1)
-                _assign_quality_text(corals_dict, new_total_score_coral, 'update', code_to_update_maintain_finished)
-            
-            for key in maintained_dict:
-                maintained_dict[key] = []
-            break
+        pass
     else:
         print('You should maintain minimum a Coral first!!')
 # https://rajaampatbiodiversity.com/coral-types/

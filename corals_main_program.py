@@ -21,12 +21,13 @@ if __name__ == '__main__':
     current_session_global = []
 
     maintained_dict = {
+        'Session': [],
         'Name': [],
         'Quantity': [],
         'Quality': [],
         'Maintenance Cost': [],
         'Total Cost': [],
-        'Session': []
+        'Coral Code': []
     }
 
     role_choice_text = '''\n
@@ -64,7 +65,7 @@ if __name__ == '__main__':
     9. Back to Main Menu
     0. Exit Program
     
-    What do you wanna do? (write the number 0-3, or 9):\t
+    What do you wanna do? (write the number 0-4, or 9):\t
     '''
 
     while True:
@@ -101,7 +102,7 @@ if __name__ == '__main__':
                 elif menu_input == '2':
                     maintain_coral(corals_dict, maintained_dict, current_session_global)
                 elif menu_input == '3':
-                    show_corals_lists(maintained_dict)
+                    show_corals_lists(maintained_dict, 'Session')
                 elif menu_input == '4':
                     completing_maintain_coral(maintained_dict)
                 elif menu_input == '9':

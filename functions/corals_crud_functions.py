@@ -12,7 +12,7 @@ def exit_program():
     print('\nThanks for your support to a better sea life!')
     os._exit(0) # exit ok status
 
-def show_corals_lists(corals_dict):
+def show_corals_lists(corals_dict, column = 'Code'):
     '''
     Used to show up the the coral to be choosed
     '''
@@ -20,10 +20,13 @@ def show_corals_lists(corals_dict):
         title_tbl = [i for i in corals_dict]
 
         corals_dict['Maintenance Cost'] = _conversion_number_to_money(corals_dict)
+
+        if len(corals_dict[column]) == 0:
+            print('\nThere is no Coral\'s data at all, please consider to add it first!!')
     
         print(tabulate(corals_dict, headers=title_tbl, tablefmt="rounded_grid"))
     else:
-        print('There is no Data available!!')
+        print('\nThere is no Data available!!')
 
 def sort_corals_display(corals_dict):
     sort_instruction = '''
@@ -227,8 +230,10 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
                     continue
                 else:
                     # _ = update_corals(corals_dict, maintained_dict, code_to_maintain, coral_qty_input)
+                    current_session_index = 'SM' + str(current_session[0])
                     corals_dict['Maintenance Cost'] = _conversion_money_to_number(corals_dict)
 
+                    coral_current_code = corals_dict['Code'][code_to_maintain]
                     coral_name_to_be_maintained = corals_dict['Name'][code_to_maintain]
                     coral_quality_to_be_maintained = corals_dict['Quality'][code_to_maintain]
                     coral_maintenance_cost = corals_dict['Maintenance Cost'][code_to_maintain]
@@ -242,16 +247,27 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
                         maintained_dict['Quality'].append(coral_quality_to_be_maintained)
                         maintained_dict['Maintenance Cost'].append(coral_maintenance_cost)
                         maintained_dict['Total Cost'].append(coral_total_cost_maintenance)
-                        maintained_dict['Session'].append('SM' + str(current_session[0]))
+                        maintained_dict['Session'].append(current_session_index)
+                        maintained_dict['Coral Code'].append(coral_current_code)
                         # _update_coral_indexs(maintained_dict, 'Session')
-                    else:
+                    elif coral_name_to_be_maintained in set(maintained_dict['Name']):
                         code_available_maintained_coral = maintained_dict['Name'].index(coral_name_to_be_maintained)
 
-                        maintained_dict['Quantity'][code_available_maintained_coral] += coral_qty_input
-                        maintained_dict['Quality'][code_available_maintained_coral] = coral_quality_to_be_maintained
-                        maintained_dict['Maintenance Cost'][code_available_maintained_coral] = coral_maintenance_cost
-                        maintained_dict['Total Cost'][code_available_maintained_coral] += coral_total_cost_maintenance
-                        maintained_dict['Session'][code_available_maintained_coral] =  maintained_dict['Session'][code_available_maintained_coral]
+                        if maintained_dict['Session'][code_available_maintained_coral] == current_session_index:
+                            maintained_dict['Quantity'][code_available_maintained_coral] += coral_qty_input
+                            maintained_dict['Quality'][code_available_maintained_coral] = coral_quality_to_be_maintained
+                            maintained_dict['Maintenance Cost'][code_available_maintained_coral] = coral_maintenance_cost
+                            maintained_dict['Total Cost'][code_available_maintained_coral] += coral_total_cost_maintenance
+                            maintained_dict['Session'][code_available_maintained_coral] =  maintained_dict['Session'][code_available_maintained_coral]
+                            maintained_dict['Coral Code'][code_available_maintained_coral] = coral_current_code
+                        else:
+                            maintained_dict['Name'].append(coral_name_to_be_maintained) 
+                            maintained_dict['Quantity'].append(coral_qty_input)
+                            maintained_dict['Quality'].append(coral_quality_to_be_maintained)
+                            maintained_dict['Maintenance Cost'].append(coral_maintenance_cost)
+                            maintained_dict['Total Cost'].append(coral_total_cost_maintenance)
+                            maintained_dict['Session'].append(current_session_index)
+                            maintained_dict['Coral Code'].append(coral_current_code)
 
                     corals_dict['Quantity'][code_to_maintain] -= coral_qty_input
 
@@ -261,7 +277,7 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
                         current_session_maintained_dict[key] = []
 
                     for idx_session in range(len(maintained_dict['Session'])):
-                        if maintained_dict['Session'][idx_session] == 'SM' + str(current_session[0]):
+                        if maintained_dict['Session'][idx_session] == current_session_index:
                             for key in maintained_dict:
                                 current_session_maintained_dict[key].append(maintained_dict[key][idx_session])
 
@@ -312,8 +328,12 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
         elif cont_input.lower() == 'n':
             print('\nThank you for saving the sea life!\n')
             os._exit(0) # exit ok status
+    else:
+        show_corals_lists(corals_dict)
 
 def completing_maintain_coral(maintained_dict):
-    show_corals_lists(maintained_dict)
-
+    while len(maintained_dict['Session']) > 1:
+        pass
+    else:
+        print('You should maintain minimum a Coral first!!')
 # https://rajaampatbiodiversity.com/coral-types/

@@ -291,7 +291,7 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
                     current_session_maintained_dict['Total Cost'] = _conversion_number_to_money(current_session_maintained_dict, 'Total Cost')
                     maintained_dict['Total Cost'] = _conversion_number_to_money(maintained_dict, 'Total Cost')
 
-                    show_corals_lists(current_session_maintained_dict)
+                    show_corals_lists(current_session_maintained_dict, 'Coral Code')
                     print(f'Total Maintenance Cost: {_money_formatting_rupiah(total_price)}')
                     break
             
@@ -338,7 +338,7 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
         show_corals_lists(corals_dict)
 
 def completing_maintain_coral(maintained_dict):
-    while len(maintained_dict['Session']) > 1:
+    while len(maintained_dict['Session']) > 0:
         pass
     else:
         print('You should maintain minimum a Coral first!!')

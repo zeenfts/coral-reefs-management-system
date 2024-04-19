@@ -48,7 +48,7 @@ if __name__ == '__main__':
     2. Add Coral(s)
     3. Delete Coral(s)
     4. Update a Coral Detail
-    9. Back to Main Menu
+    9. Back to Login Page
     0. Exit Program
     
     What do you wanna do? (write the number 0-4, or 9):\t
@@ -62,7 +62,7 @@ if __name__ == '__main__':
     2. Corals Check (Inspection)
     3. Show Still being Maintained Corals
     4. Completing the Maintained Corals
-    9. Back to Main Menu
+    9. Back to Login Page
     0. Exit Program
     
     What do you wanna do? (write the number 0-4, or 9):\t

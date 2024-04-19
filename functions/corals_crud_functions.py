@@ -193,9 +193,12 @@ def update_coral(corals_dict, coral_code_exist_in_add = False):
 
         if change_coral:
             name_coral_updated = corals_dict['Name'][row_coral_to_update]
-            print(f'Fruit: {name_coral_updated} updated successfully!\n')
+            print(f'\nCoral: {name_coral_updated} updated successfully!\n')
             show_corals_lists(corals_dict)
-            break
+
+            update_confirm_input = _confirmation_question('Update others Coral again? (Y/n): ')
+            if update_confirm_input.lower() == 'n':
+                break
 
 # --------------------- Inspector Section ---------------------
 def maintain_coral(corals_dict, maintained_dict, current_session = 0):

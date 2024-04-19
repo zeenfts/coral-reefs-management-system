@@ -14,4 +14,22 @@ Coral Reefs, or also can be called as Ocean rainforest, although only has a popu
 3. Run the *corals_main_program.py*.
 
 ## Program Flow
+### Login Page
+![Login Page based on User's Role]()
+### 1. Main Menu Page
+![Manager Login](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/01_manager_login_menu_flow.png?raw=true)
+![Inspector Login](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/01_inspector_login_menu_flow.png?raw=true)
+### 2. Read Menu (Manager & Inspector)
+![Show Corals Choices](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/02_show_corals_choices.png?raw=true)
+![Show Corals Default & Ordered](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/02_show_corals_default_ordered.png?raw=true)
+![Filtered]()
+![Show Still Maintained Coral by Inspector](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/07_still_being_maintained_corals_menu_inspector.png?raw=true)
+### 3. Create Menu (Manager & Inspector)
+![Create by Manager](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/03_add_coral_menu_manager.png?raw=true)
+![Create by Inspector Inspect Feature](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/06_coral_check_menu_inspector.png?raw=true)
+### 4. Update Menu (Manager & Inspector)
+![Update Coral by Manager](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/05_update_coral_menu_manager.png?raw=true)
+![Finish Maintained Coral by Inspector](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/08_finish_maintained_coral_inspector.png?raw=true)
+### 5. Delete Menu (Manager)
+![Delete Coral from Dictionary by Manager](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/04_delete_coral_menu_manager.png?raw=true)
 ## Results View

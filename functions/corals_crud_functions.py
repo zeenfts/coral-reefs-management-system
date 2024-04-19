@@ -61,19 +61,26 @@ def sort_corals_display(corals_dict):
             show_corals_lists(corals_dict)
             break
         elif sort_input_user == '4':
-            filter_text_instruction = '''
-            Write some columns you want to filtered!
-            (if more than one split it by comma \",\" between each column)\t
-            '''
-            filter_column_choice_input = input(filter_text_instruction)
-            
-            filtered_corals_dict = {
-                key: corals_dict[key] for key in corals_dict.keys()
-                & set([i.strip() for i in filter_column_choice_input.split(',')])
-            }
+            while True:
+                filter_text_instruction = '''
+                Write some columns you want to filtered!
+                (if more than one split it by comma \",\" between each column)\t
+                '''
+                filter_column_choice_input = input(filter_text_instruction)
+                splitted_column_name_unique = set([i.strip() for i in filter_column_choice_input.split(',') for key in corals_dict.keys() if i.strip() in key])
 
-            print('\n >>>>>>> Full List Corals several Columns Only <<<<<<<')
-            show_corals_lists(filtered_corals_dict, list(filtered_corals_dict)[0])
+                if len(splitted_column_name_unique) == 0:
+                    print('\nThere is no such column, please insert the right one!!')
+                    continue
+
+                filtered_corals_dict = {
+                    key: corals_dict[key] for key in corals_dict.keys()
+                    & splitted_column_name_unique
+                }
+
+                print('\n >>>>>>> Full List Corals several Columns Only <<<<<<<')
+                show_corals_lists(filtered_corals_dict, list(filtered_corals_dict)[0])
+                break
             break
         else:
             print('There is no such choice!')

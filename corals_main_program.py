@@ -31,7 +31,7 @@ if __name__ == '__main__':
     }
 
     role_choice_text = '''\n
-    Corals Reef System
+    Corals Reef System Login Page
 
     What is your role?
     1. Manager

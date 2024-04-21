@@ -388,7 +388,7 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
 def completing_maintain_coral(maintained_dict, corals_dict):
     while len(maintained_dict['Session']) > 0:
         show_corals_lists(maintained_dict, 'Session')
-        session_chooser_input = input('\nWhich session already being maintained? ("All" to finished all Corals)\n')
+        session_chooser_input = input('\nWhich session already being maintained? (can only write "All" to finished all Corals)\n')
 
         if session_chooser_input.title() == 'All':
             for index_maintained in range(len(maintained_dict['Session'])):

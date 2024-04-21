@@ -75,8 +75,13 @@ def _number_input_checker(input_text_command:str, corals_dict:dict, key_corals_d
                 number_input = int(number_input)
             elif type_choice == 'float':
                 number_input = float(number_input)
-            corals_dict[key_corals_dict].append(number_input)
-            break
+
+            if number_input > 0:
+                corals_dict[key_corals_dict].append(number_input)
+                break
+            else:
+                print('The value can not less than or equal 0, Please provide positive value! Thank You.')
+                continue
         else:
             print('Please provide a number!')
             continue

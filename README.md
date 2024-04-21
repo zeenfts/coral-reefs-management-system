@@ -32,3 +32,18 @@ Coral Reefs, or also can be called as Ocean rainforest, although only has a popu
 ### 5. Delete Menu (Manager)
 ![Delete Coral from Dictionary by Manager](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/04_delete_coral_menu_manager.png?raw=true)
 ## Results View
+### 1. Login Page View and each Role Menu
+![Login Page View](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/views_program/01_login_view.png?raw=true)
+![Manager Menu View](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/views_program/01_manager_menu_view.png?raw=true)
+![Inspector Menu View](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/views_program/01_inspector_menu_view.png?raw=true)
+### 2. Read Menu View (Manager & Inspector)
+![Show Corals Choice View](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/views_program/02_display_coral_choice_view.png?raw=true)
+![Show Still Maintained Coral by Inspector View](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/views_program/07_coral_still_being_maintained_inspector_view.png?raw=true)
+### 3. Create Menu View (Manager & Inspector)
+![Add Coral by Manager View](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/views_program/03_add_coral_manager_view.png?raw=true)
+![Add want to be Maintained by Inspector View](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/views_program/06_coral_check_maintain_inspector_view.png?raw=true)
+### 4. Update Menu View (Manager & Inspector)
+![Update Coral by Manager View](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/views_program/05_update_coral_manager_view.png?raw=true)
+![Finish Maintained Coral by Inspector View](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/views_program/08_finish_coral_maintained_inspector_view.png?raw=true)
+### 5. Delete Menu View (Manager)
+![Delete Coral from Dictionary by Manager View](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/views_program/04_delete_coral_manager_view.png?raw=true)

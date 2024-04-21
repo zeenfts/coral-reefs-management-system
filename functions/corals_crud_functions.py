@@ -122,6 +122,7 @@ def add_coral(corals_dict):
     Used to adding new corals reef to the warehouse
     '''
     while True:
+        print('\n ------- Add New Coral(s) -------')
         coral_name_input = input('Input New Coral\'s Name: ')
         coral_name_set = set([i for i in corals_dict.values()][1])
         # print(coral_name_set)
@@ -171,7 +172,7 @@ def delete_coral(corals_dict):
     show_corals_lists(corals_dict)
 
     while (len(corals_dict['Code']) > 0):
-        del_input_idx = input(f'\nWhich Coral do you want to delete?\n(write the Code or write \'All\' to purge the data)\n')
+        del_input_idx = input(f'\nWhich Coral do you want to delete?\n(write the Code or write \'All\' to purge all the data)\n')
         if del_input_idx.title() == 'All':
             # corals_dict.clear()
             for key in corals_dict:
@@ -184,10 +185,12 @@ def delete_coral(corals_dict):
         else:
             # Delete Section
             code_to_be_deleted = corals_dict['Code'].index(del_input_idx)
+            coral_name_deleted = corals_dict['Name'][code_to_be_deleted]
+
             for val in corals_dict.values():
                 val.pop(code_to_be_deleted)
 
-            print(f'Coral(s) Remove Successfully!')
+            print(f'{coral_name_deleted} Remove Successfully!')
 
             del_feed_input = _confirmation_question('Delete others Coral again? (Y/n): ')
             if del_feed_input.lower() == 'n':
@@ -320,7 +323,7 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
 
                     corals_dict['Quantity'][code_to_maintain] -= coral_qty_input
 
-                    print('\n')
+                    print('')
                     current_session_maintained_dict = maintained_dict.copy()
                     for key in current_session_maintained_dict:
                         current_session_maintained_dict[key] = []
@@ -403,7 +406,9 @@ def completing_maintain_coral(maintained_dict, corals_dict):
 
             for key in maintained_dict:
                 maintained_dict[key] = []
+
+            print('\nSuccessfully completing all the maintained Corals!! Thank You')
             break
     else:
-        print('You should maintain minimum a Coral first!!')
+        print('\nYou should maintain minimum a Coral first!!')
 # https://rajaampatbiodiversity.com/coral-types/

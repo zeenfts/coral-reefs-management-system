@@ -3,7 +3,7 @@ from functions.corals_helper_function import (
     _sort_corals_certain_column, _money_formatting_rupiah, _conversion_money_to_number, _conversion_number_to_money
 )
 from tabulate import tabulate
-import os
+import os, re
 
 def exit_program():
     '''
@@ -36,11 +36,10 @@ def sort_corals_display(corals_dict):
     2. Sorted by Certain Column (Ascending) [affect the database]
     3. Sorted by Certain Column (Descending) [affect the database]
     4. Filtered Specific Column(s) [does not affect the default database]
+    5. Search by Coral's Name Column [does not affect the default database]
 
-    Write the choice! (1-4)
+    Write the choice! (1-5)
     '''
-
-    original_corals_dict = corals_dict.copy()
 
     while True:
         sort_input_user = input(sort_instruction)
@@ -61,7 +60,7 @@ def sort_corals_display(corals_dict):
             show_corals_lists(corals_dict)
             break
         elif sort_input_user == '4':
-            while True:
+            while len(corals_dict.keys()) > 0:
                 filter_text_instruction = '''
                 Write some columns you want to filtered!
                 (if more than one split it by comma \",\" between each column)\t
@@ -82,6 +81,37 @@ def sort_corals_display(corals_dict):
                 show_corals_lists(filtered_corals_dict, list(filtered_corals_dict)[0])
                 break
             break
+        elif sort_input_user == '5':
+            while len(corals_dict['Name']) > 0:
+                coral_dict_searched = corals_dict.copy()
+
+                for key in coral_dict_searched.keys():
+                    coral_dict_searched[key] = []
+
+                search_text_instruction = 'What Name of Corals, do you want to search?\n'
+                search_coral_name = input(search_text_instruction)
+
+                compiled_pattern = re.compile(search_coral_name, re.IGNORECASE)
+
+                for coral_name in corals_dict['Name']:
+                    compiled_pattern = re.compile(search_coral_name, re.IGNORECASE)
+                    regex_search_status = bool(compiled_pattern.search(coral_name))
+
+                    if regex_search_status:
+                        idx_result_true = corals_dict['Name'].index(coral_name)
+
+                        for key in coral_dict_searched.keys():
+                            coral_dict_searched[key].append(corals_dict[key][idx_result_true])
+
+                print('\n >>>>>>> Searched Corals based on Name <<<<<<<')
+                show_corals_lists(coral_dict_searched)
+
+                if len(coral_dict_searched['Code']) > 0:
+                    break
+                else:
+                    print(f'\nNo Corals: {search_coral_name} exist!')
+                    continue
+            break   
         else:
             print('There is no such choice!')
             continue

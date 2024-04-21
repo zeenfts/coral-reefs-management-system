@@ -83,8 +83,6 @@ if __name__ == '__main__':
                     delete_coral(corals_dict)
                 elif menu_input == '4':
                     update_coral(corals_dict)
-                elif menu_input == '5':
-                    maintain_coral(corals_dict, maintained_dict)
                 elif menu_input == '9':
                     break
                 elif menu_input == '0':

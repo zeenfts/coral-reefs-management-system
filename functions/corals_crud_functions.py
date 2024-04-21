@@ -254,8 +254,13 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
         current_session[0] += 1
     
     while (len(corals_dict['Code'])  > 0):
+        if sum(corals_dict['Quantity']) == 0:
+            print('All corals still being Maintained!!')
+            break
+        
         print('\n------- Full List of Corals -------')
         show_corals_lists(corals_dict)
+
         code_to_maintain = input('\nInput Coral\'s code to be maintained! ')
 
         upd_feed_input = ''

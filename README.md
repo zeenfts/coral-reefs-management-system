@@ -14,7 +14,7 @@ Coral Reefs, or also can be called as Ocean rainforest, although only has a popu
 3. Run the *corals_main_program.py*.
 
 ## Program Flow
-### [PDF Version](https://github.com/zeenfts/coral-reefs-management-system/blob/main/files/flows_program/flow_program.pdf?raw=true)
+### [PDF Version](https://github.com/zeenfts/coral-reefs-management-system/blob/main/files/flow_program.pdf)
 ### 1. Login Page to Main Menu
 ![Manager Login](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/01_manager_login_menu_flow.png?raw=true)
 ![Inspector Login](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/01_inspector_login_menu_flow.png?raw=true)

@@ -27,6 +27,9 @@ Coral Reefs, or also can be called as Ocean rainforest, although only has a popu
 4. Can only search based on the coral's name column.
 5. Not using external data storage such as database.
 
+## Full Overview Program Flow
+![Overview](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/00_main_menu_coral_full_overview_flow.png?raw=true)
+
 ## Results View Program
 ### 1. Login Page View and each Role Menu
 ![Login Page View](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/views_program/01_login_view.png?raw=true)

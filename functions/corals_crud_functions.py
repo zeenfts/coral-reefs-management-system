@@ -142,7 +142,7 @@ def add_coral(corals_dict):
             show_corals_lists(corals_dict)
 
         else:
-            print('Already have that corals!')
+            print('\nAlready have that corals!')
             print('Please input a new one!')
             print('or Maybe you should consider to go for update menu!')
 

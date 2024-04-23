@@ -61,7 +61,7 @@ if __name__ == '__main__':
 
     List Menu:
     1. Show Corals list
-    2. Corals Check (Inspection)
+    2. Corals Check (Maintenance)
     3. Show Still being Maintained Corals
     4. Completing the Maintained Corals
     9. Back to Login Page

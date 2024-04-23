@@ -30,19 +30,30 @@ Coral Reefs, or also can be called as Ocean rainforest, although only has a popu
 ## Program Flow
 ### [PDF Version](https://github.com/zeenfts/coral-reefs-management-system/blob/main/files/__password_role.txt)
 ### 1. Login Page to Main Menu
+#### 1.1. Manager's Menu
 ![Manager Login](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/01_manager_login_menu_flow.png?raw=true)
+#### 1.2. Inspector's Menu
 ![Inspector Login](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/01_inspector_login_menu_flow.png?raw=true)
 ### 2. Read Menu (Manager & Inspector)
+#### 2.1. Read Corals Menu
 ![Show Corals Choices](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/02_show_corals_choices.png?raw=true)
+#### 2.2. Display Corals Menu (Default Order, Ordered by Ascending & Descending)
 ![Show Corals Default & Ordered](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/02_show_corals_default_ordered.png?raw=true)
+#### 2.3. Display Corals Menu (Specific Column(s) Filtered)
 ![Show Filtered Column](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/02_show_filtered_coral_column.png?raw=true)
+#### 2.4. Display Corals Menu (Searched on Coral's Name)
 ![Searched Coral Name](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/02_show_searched_coral_name.png?raw=true)
+#### 2.5. Display Maintained Corals Menu
 ![Show Still Maintained Coral by Inspector](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/07_still_being_maintained_corals_menu_inspector.png?raw=true)
 ### 3. Create Menu (Manager & Inspector)
+#### 3.1. Create (Add) New Coral (s)
 ![Create by Manager](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/03_add_coral_menu_manager.png?raw=true)
-![Create by Inspector Inspect Feature](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/06_coral_check_menu_inspector.png?raw=true)
+#### 3.2. Add Coral(s) to the Maintenance Process
+![Create by Inspector Maintain Feature](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/06_coral_check_menu_inspector.png?raw=true)
 ### 4. Update Menu (Manager & Inspector)
+#### 4.1. Update Existing Coral(s)
 ![Update Coral by Manager](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/05_update_coral_menu_manager.png?raw=true)
+#### 4.2. Complete Current Maintained Coral(S)
 ![Finish Maintained Coral by Inspector](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/08_finish_maintained_coral_inspector.png?raw=true)
 ### 5. Delete Menu (Manager)
 ![Delete Coral from Dictionary by Manager](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/04_delete_coral_menu_manager.png?raw=true)

@@ -84,10 +84,7 @@ def sort_corals_display(corals_dict):
             break
         elif sort_input_user == '5':
             while len(corals_dict['Name']) > 0:
-                coral_dict_searched = corals_dict.copy()
-
-                for key in coral_dict_searched.keys():
-                    coral_dict_searched[key] = []
+                coral_dict_searched = {key: [] for key in corals_dict.keys()}
 
                 search_text_instruction = '\nWhat Name of Corals, do you want to search?\n'
                 search_coral_name = input(search_text_instruction)
@@ -330,9 +327,7 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
                     corals_dict['Quantity'][code_to_maintain] -= coral_qty_input
 
                     print('')
-                    current_session_maintained_dict = maintained_dict.copy()
-                    for key in current_session_maintained_dict:
-                        current_session_maintained_dict[key] = []
+                    current_session_maintained_dict = {key: [] for key in maintained_dict.keys()}
 
                     for idx_session in range(len(maintained_dict['Session'])):
                         if maintained_dict['Session'][idx_session] == current_session_index:

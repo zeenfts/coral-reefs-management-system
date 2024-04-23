@@ -95,6 +95,16 @@ def _text_input_checker(input_text_command:str, corals_dict:dict, key_corals_dic
     text_input = input(input_text_command).title()
     corals_dict[key_corals_dict].append(text_input)
 
+def _append_value_to_column_maintained(maintained_dict, coral_name_to_be_maintained, coral_qty_input, coral_quality_to_be_maintained,
+                                       coral_maintenance_cost, coral_total_cost_maintenance, current_session_index, coral_current_code):
+    maintained_dict['Name'].append(coral_name_to_be_maintained) 
+    maintained_dict['Quantity'].append(coral_qty_input)
+    maintained_dict['Quality'].append(coral_quality_to_be_maintained)
+    maintained_dict['Maintenance Cost'].append(coral_maintenance_cost)
+    maintained_dict['Total Cost'].append(coral_total_cost_maintenance)
+    maintained_dict['Session'].append(current_session_index)
+    maintained_dict['Coral Code'].append(coral_current_code)
+    
 def _update_coral_indexs(corals_dict, column_idx = 'Code'):
     '''
     helper to update the Code or Session Maintained of each Coral

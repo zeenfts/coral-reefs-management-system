@@ -1,9 +1,9 @@
 from functions.corals_helper_function import (
     _assign_quality_text, _confirmation_question, _update_each_column, _number_input_checker, _text_input_checker, _update_coral_indexs,
-    _sort_corals_certain_column, _money_formatting_rupiah, _conversion_money_to_number, _conversion_number_to_money
+    _sort_corals_certain_column, _money_formatting_rupiah, _conversion_money_to_number, _conversion_number_to_money, _append_value_to_column_maintained
 )
 from tabulate import tabulate
-import os, re
+import os, re, textwrap
 
 
 def exit_program():
@@ -31,7 +31,7 @@ def show_corals_lists(corals_dict, column = 'Code'):
         print('\nThere is no Data available!!')
 
 def sort_corals_display(corals_dict):
-    sort_instruction = '''
+    sort_instruction = textwrap.dedent('''
     How do you want to see the Corals list?
     1. Default Order
     2. Sorted by Certain Column (Ascending) [affect the database]
@@ -40,7 +40,7 @@ def sort_corals_display(corals_dict):
     5. Search by Coral's Name Column [does not affect the default database]
 
     Write the choice! (1-5)
-    '''
+    ''')
 
     while True:
         sort_input_user = input(sort_instruction)
@@ -62,10 +62,10 @@ def sort_corals_display(corals_dict):
             break
         elif sort_input_user == '4':
             while len(corals_dict.keys()) > 0:
-                filter_text_instruction = '''
+                filter_text_instruction = textwrap.dedent('''
                 Write some columns you want to filtered!
                 (if more than one split it by comma \",\" between each column)\t
-                '''
+                ''')
                 filter_column_choice_input = input(filter_text_instruction)
                 splitted_column_name_unique = set([i.strip() for i in filter_column_choice_input.split(',') for key in corals_dict.keys() if i.strip() in key])
 
@@ -138,7 +138,7 @@ def add_coral(corals_dict):
 
             corals_dict['Code'] = _update_coral_indexs(corals_dict)
 
-            print(f'{coral_name_input} Successfully Added!!\n')
+            print(f'{coral_name_input.strip()} Successfully Added!!\n')
             show_corals_lists(corals_dict)
 
         else:
@@ -153,6 +153,7 @@ def add_coral(corals_dict):
                 exist_code_coral_from_name = corals_dict['Name'].index(prettify_coral_name)
                 update_existing_coral_code = corals_dict['Code'][exist_code_coral_from_name]
                 update_coral(corals_dict, update_existing_coral_code)
+                print(f'{prettify_coral_name.strip()} Updated Successfully!')
                 break
             elif add_to_update_coral_input.lower() == 'n':
                 continue
@@ -188,7 +189,7 @@ def delete_coral(corals_dict):
             for val in corals_dict.values():
                 val.pop(code_to_be_deleted)
 
-            print(f'{coral_name_deleted} Remove Successfully!')
+            print(f'{coral_name_deleted.strip()} Removed Successfully!')
 
             del_feed_input = _confirmation_question('Delete others Coral again? (Y/n): ')
             if del_feed_input.lower() == 'n':
@@ -297,14 +298,9 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
                     maintained_dict['Total Cost'] = _conversion_money_to_number(maintained_dict, 'Total Cost')
 
                     if coral_name_to_be_maintained not in set(maintained_dict['Name']):
-                        maintained_dict['Name'].append(coral_name_to_be_maintained) 
-                        maintained_dict['Quantity'].append(coral_qty_input)
-                        maintained_dict['Quality'].append(coral_quality_to_be_maintained)
-                        maintained_dict['Maintenance Cost'].append(coral_maintenance_cost)
-                        maintained_dict['Total Cost'].append(coral_total_cost_maintenance)
-                        maintained_dict['Session'].append(current_session_index)
-                        maintained_dict['Coral Code'].append(coral_current_code)
-                        # _update_coral_indexs(maintained_dict, 'Session')
+                        _append_value_to_column_maintained(maintained_dict, coral_name_to_be_maintained, coral_qty_input, coral_quality_to_be_maintained,
+                                                           coral_maintenance_cost, coral_total_cost_maintenance, current_session_index, coral_current_code)
+                        
                     elif coral_name_to_be_maintained in set(maintained_dict['Name']):
                         code_available_maintained_coral = maintained_dict['Name'].index(coral_name_to_be_maintained)
 
@@ -316,13 +312,8 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
                             maintained_dict['Session'][code_available_maintained_coral] =  maintained_dict['Session'][code_available_maintained_coral]
                             maintained_dict['Coral Code'][code_available_maintained_coral] = coral_current_code
                         else:
-                            maintained_dict['Name'].append(coral_name_to_be_maintained) 
-                            maintained_dict['Quantity'].append(coral_qty_input)
-                            maintained_dict['Quality'].append(coral_quality_to_be_maintained)
-                            maintained_dict['Maintenance Cost'].append(coral_maintenance_cost)
-                            maintained_dict['Total Cost'].append(coral_total_cost_maintenance)
-                            maintained_dict['Session'].append(current_session_index)
-                            maintained_dict['Coral Code'].append(coral_current_code)
+                            _append_value_to_column_maintained(maintained_dict, coral_name_to_be_maintained, coral_qty_input, coral_quality_to_be_maintained,
+                                                                coral_maintenance_cost, coral_total_cost_maintenance, current_session_index, coral_current_code)
 
                     corals_dict['Quantity'][code_to_maintain] -= coral_qty_input
 
@@ -410,6 +401,8 @@ def completing_maintain_coral(maintained_dict, corals_dict):
 
             print('\nSuccessfully completing all the maintained Corals!! Thank You')
             break
+        else:
+            print('\nInvalid commands! Please write only "All" to finish the maintenance process!')
+            continue
     else:
         print('\nYou should maintain minimum a Coral first!!')
-# https://rajaampatbiodiversity.com/coral-types/

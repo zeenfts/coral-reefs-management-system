@@ -2,7 +2,7 @@ from functions.corals_crud_functions import (
     show_corals_lists, sort_corals_display, add_coral, delete_coral, update_coral, maintain_coral, completing_maintain_coral, exit_program
 )
 from functions.corals_helper_function import manager_pass, inspector_pass
-import maskpass
+import maskpass, textwrap
 
 if __name__ == '__main__':
     print('\n======= Coral Reefs Management System =======')
@@ -18,7 +18,7 @@ if __name__ == '__main__':
         'Scientific Name': ['Acropora', 'Diploastrea heliopora', 'Aglaopheniidae', 'Sinularia',
                             'Pavona cactus', 'Stylophora pistillata', 'Nephtheidae', 'Subergorgia'],
         'Maintenance Cost': [100_000, 45_000, 78_000, 145_000, 175_000, 99_000, 56_000, 123_000]
-    }
+    } # https://rajaampatbiodiversity.com/coral-types/
 
     current_session_global = []
 
@@ -32,7 +32,7 @@ if __name__ == '__main__':
         'Coral Code': []
     }
 
-    role_choice_text = '''\n
+    role_choice_text = textwrap.dedent('''\n
     Corals Reef System Login Page
 
     What is your role?
@@ -40,9 +40,9 @@ if __name__ == '__main__':
     2. Inspector
 
     Please write (1 or 2):\t
-    '''
+    ''')
 
-    menu_text_admin = '''\n\
+    menu_text_admin = textwrap.dedent('''\n\
     [Manager] Welcome to Corals Reef System [Manager]\n\
 
     List Menu:
@@ -54,9 +54,9 @@ if __name__ == '__main__':
     0. Exit Program
     
     What do you wanna do? (write the number 0-4, or 9):\t
-    '''
+    ''')
 
-    menu_text_user = '''\n\
+    menu_text_user = textwrap.dedent('''\n\
     [Inspector] Welcome to Corals Reef System [Inspector]\n\
 
     List Menu:
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     0. Exit Program
     
     What do you wanna do? (write the number 0-4, or 9):\t
-    '''
+    ''')
 
     while True:
         role_input = input(role_choice_text)
@@ -78,7 +78,7 @@ if __name__ == '__main__':
             continue
 
         else:
-            password_input = maskpass.askpass(prompt='\tYour Password: ', mask='*')
+            password_input = maskpass.askpass(prompt='Your Password: ', mask='*')
 
             if ((password_input not in manager_pass and role_input == '1') or
             (password_input not in inspector_pass and role_input == '2')):
@@ -114,6 +114,7 @@ if __name__ == '__main__':
                     elif menu_input == '2':
                         maintain_coral(corals_dict, maintained_dict, current_session_global)
                     elif menu_input == '3':
+                        print('>>>>>>> Still Being Maintained Corals <<<<<<<')
                         show_corals_lists(maintained_dict, 'Session')
                     elif menu_input == '4':
                         completing_maintain_coral(maintained_dict, corals_dict)

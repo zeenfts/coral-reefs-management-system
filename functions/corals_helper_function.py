@@ -53,14 +53,14 @@ def _update_each_column(text_command_to_update, corals_dict, column_to_update, r
     if cols_type == 'int' or cols_type == 'float':
         while True:
             column_update_new_val = input(text_command_to_update)
-            if column_update_new_val.isdigit():
+            try:
                 if cols_type == 'int':
                     column_update_new_val = int(column_update_new_val)
                 elif cols_type == 'float':
                     column_update_new_val = float(column_update_new_val)
                 corals_dict[column_to_update][row_coral_to_update] = column_update_new_val
                 break
-            else:
+            except ValueError:
                 print('Please insert a number as value!\n')
                 continue
 
@@ -73,7 +73,7 @@ def _update_each_column(text_command_to_update, corals_dict, column_to_update, r
 def _number_input_checker(input_text_command:str, corals_dict:dict, key_corals_dict:str, type_choice:str ='int'):
     while True:
         number_input = input(input_text_command)
-        if number_input.isdigit():
+        try:
             if type_choice == 'int':
                 number_input = int(number_input)
             elif type_choice == 'float':
@@ -85,7 +85,7 @@ def _number_input_checker(input_text_command:str, corals_dict:dict, key_corals_d
             else:
                 print('The value can not less than or equal 0, Please provide positive value! Thank You.')
                 continue
-        else:
+        except ValueError:
             print('Please provide a number!')
             continue
 

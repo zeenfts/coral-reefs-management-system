@@ -4,7 +4,7 @@ from functions.corals_crud_functions import (
 from functions.corals_helper_function import manager_pass, inspector_pass
 import maskpass, textwrap
 
-if __name__ == '__main__':
+def main_program():
     print('\n======= Coral Reefs Management System =======')
     
     corals_dict = { #The main data Collection 
@@ -125,3 +125,6 @@ if __name__ == '__main__':
                     else:
                         print('Sorry there is no that menu!')
                         continue
+
+if __name__ == '__main__':
+    main_program()

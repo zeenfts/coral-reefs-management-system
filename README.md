@@ -13,8 +13,10 @@ Coral Reefs, or also can be called as Ocean rainforest, although only has a popu
 2. On Command Prompt/Powershell (Windows), Terminal (Mac/Linux). Do either `pip install tabulate maskpass` or `conda install tabulate maskpass` on your System of Global Environment (you could also do it inside a Virtual Environment).
 3. Run the *corals_main_program.py*.
 
+[Password File]()
+
 ## Program Flow
-### [PDF Version](https://github.com/zeenfts/coral-reefs-management-system/blob/main/files/flow_program.pdf)
+### [PDF Version](https://github.com/zeenfts/coral-reefs-management-system/blob/main/files/__password_role.txt)
 ### 1. Login Page to Main Menu
 ![Manager Login](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/01_manager_login_menu_flow.png?raw=true)
 ![Inspector Login](https://github.com/zeenfts/coral-reefs-management-system/blob/main/images/flows_program/01_inspector_login_menu_flow.png?raw=true)

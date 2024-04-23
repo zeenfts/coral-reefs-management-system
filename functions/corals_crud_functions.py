@@ -89,7 +89,7 @@ def sort_corals_display(corals_dict):
                 for key in coral_dict_searched.keys():
                     coral_dict_searched[key] = []
 
-                search_text_instruction = 'What Name of Corals, do you want to search?\n'
+                search_text_instruction = '\nWhat Name of Corals, do you want to search?\n'
                 search_coral_name = input(search_text_instruction)
 
                 compiled_pattern = re.compile(search_coral_name, re.IGNORECASE)

@@ -5,6 +5,7 @@ from functions.corals_helper_function import (
 from tabulate import tabulate
 import os, re
 
+
 def exit_program():
     '''
     Used to exit
@@ -257,7 +258,7 @@ def maintain_coral(corals_dict, maintained_dict, current_session = 0):
         if sum(corals_dict['Quantity']) == 0:
             print('All corals still being Maintained!!')
             break
-        
+
         print('\n------- Full List of Corals -------')
         show_corals_lists(corals_dict)
 

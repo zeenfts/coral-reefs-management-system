@@ -1,6 +1,8 @@
 from functions.corals_crud_functions import (
     show_corals_lists, sort_corals_display, add_coral, delete_coral, update_coral, maintain_coral, completing_maintain_coral, exit_program
 )
+from functions.corals_helper_function import manager_pass, inspector_pass
+import maskpass
 
 if __name__ == '__main__':
     print('\n======= Coral Reefs Management System =======')
@@ -71,46 +73,54 @@ if __name__ == '__main__':
     while True:
         role_input = input(role_choice_text)
 
-        if role_input == '1': #admin role
-            while True:
-                menu_input = input(menu_text_admin)
-
-                if menu_input == '1':
-                    sort_corals_display(corals_dict)
-                elif menu_input == '2':
-                    add_coral(corals_dict)
-                elif menu_input == '3':
-                    delete_coral(corals_dict)
-                elif menu_input == '4':
-                    update_coral(corals_dict)
-                elif menu_input == '9':
-                    break
-                elif menu_input == '0':
-                    exit_program()
-                else:
-                    print('Sorry there is no choice of that menu!')
-                    continue
-
-        elif role_input == '2': #user role
-            while True:
-                menu_input = input(menu_text_user)
-
-                if menu_input == '1':
-                    sort_corals_display(corals_dict)
-                elif menu_input == '2':
-                    maintain_coral(corals_dict, maintained_dict, current_session_global)
-                elif menu_input == '3':
-                    show_corals_lists(maintained_dict, 'Session')
-                elif menu_input == '4':
-                    completing_maintain_coral(maintained_dict, corals_dict)
-                elif menu_input == '9':
-                    break
-                elif menu_input == '0':
-                    exit_program()
-                else:
-                    print('Sorry there is no that menu!')
-                    continue
-
-        else: #wrong choice
-            print('Sorry there is no such role exists!')
+        if role_input not in {'1', '2'}: #wrong choice
+            print('\nSorry, Please check if such role exists!')
             continue
+
+        else:
+            password_input = maskpass.askpass(prompt='\tYour Password: ', mask='*')
+
+            if ((password_input not in manager_pass and role_input == '1') or
+            (password_input not in inspector_pass and role_input == '2')):
+                print('\nSorry, Please check for your password!')
+                continue
+
+            elif role_input == '1' and password_input in manager_pass: #admin role
+                while True:
+                    menu_input = input(menu_text_admin)
+
+                    if menu_input == '1':
+                        sort_corals_display(corals_dict)
+                    elif menu_input == '2':
+                        add_coral(corals_dict)
+                    elif menu_input == '3':
+                        delete_coral(corals_dict)
+                    elif menu_input == '4':
+                        update_coral(corals_dict)
+                    elif menu_input == '9':
+                        break
+                    elif menu_input == '0':
+                        exit_program()
+                    else:
+                        print('Sorry there is no choice of that menu!')
+                        continue
+
+            elif role_input == '2' and password_input in inspector_pass: #user role
+                while True:
+                    menu_input = input(menu_text_user)
+
+                    if menu_input == '1':
+                        sort_corals_display(corals_dict)
+                    elif menu_input == '2':
+                        maintain_coral(corals_dict, maintained_dict, current_session_global)
+                    elif menu_input == '3':
+                        show_corals_lists(maintained_dict, 'Session')
+                    elif menu_input == '4':
+                        completing_maintain_coral(maintained_dict, corals_dict)
+                    elif menu_input == '9':
+                        break
+                    elif menu_input == '0':
+                        exit_program()
+                    else:
+                        print('Sorry there is no that menu!')
+                        continue

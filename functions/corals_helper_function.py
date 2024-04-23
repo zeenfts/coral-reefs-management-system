@@ -1,5 +1,8 @@
 import locale
 
+manager_pass = {'mgr123', 'mgr456'}
+inspector_pass = {'ins345', 'ins678'}
+
 # --------------------- Miscellaneous Section (helper function) ---------------------
 def _assign_quality_text(corals_dict, score_quality, method='add', row_coral_to_update=-1):
     '''

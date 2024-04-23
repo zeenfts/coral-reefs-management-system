@@ -12,7 +12,7 @@ Coral Reefs, or also can be called as Ocean rainforest, although only has a popu
 ## How to Run
 1. Make sure Python 3.8+ installed on your Computer.
 2. Clone or download this Repository locally (on your own Computer Machine).
-3. On Command Prompt/Powershell (Windows), Terminal (Mac/Linux). Do either `pip install tabulate maskpass` or `conda install tabulate maskpass` on your System of Global Environment (you could also do it inside a Virtual Environment). <br>
+3. Install required Libraries. On Command Prompt/Powershell (Windows), Terminal (Mac/Linux). Do either `pip install tabulate maskpass` or `conda install tabulate maskpass` on your System of Global Environment (you could also do it inside a Virtual Environment). <br>
     3.1. tabulate=0.9.0 (or up) <br>
     3.2. maskpass=0.3.7 (or up)
 4. Run the *corals_main_program.py* on terminal (in the same directory just write `python corals_main_program.py` and enter).

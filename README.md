@@ -9,11 +9,22 @@ Coral Reefs, or also can be called as Ocean rainforest, although only has a popu
 <sub><small>4. Goldmanprize.org</small></sub>
 
 ## How to Run
-1. Clone or download this Repository locally (on your own Computer Machine).
-2. On Command Prompt/Powershell (Windows), Terminal (Mac/Linux). Do either `pip install tabulate maskpass` or `conda install tabulate maskpass` on your System of Global Environment (you could also do it inside a Virtual Environment).
-3. Run the *corals_main_program.py*.
+1. Make sure Python 3.8+ installed on your Computer.
+2. Clone or download this Repository locally (on your own Computer Machine).
+3. On Command Prompt/Powershell (Windows), Terminal (Mac/Linux). Do either `pip install tabulate maskpass` or `conda install tabulate maskpass` on your System of Global Environment (you could also do it inside a Virtual Environment). <br>
+    3.1. tabulate=0.9.0 (or up) <br>
+    3.2. maskpass=0.3.7 (or up)
+4. Run the *corals_main_program.py*.
+5. Enjoy the program.
 
 [Password File](https://github.com/zeenfts/coral-reefs-management-system/blob/main/files/__password_role.txt)
+
+## Limitations:
+1. No Graphical User Interfaces (GUI).
+2. Can only finish all of current maintained corals.
+3. Only one user available for each role.
+4. Can only search based on the coral's name column.
+5. Not using external data storage such as database.
 
 ## Program Flow
 ### [PDF Version](https://github.com/zeenfts/coral-reefs-management-system/blob/main/files/__password_role.txt)
